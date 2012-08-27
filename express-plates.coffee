@@ -2,11 +2,12 @@ plates = require 'plates'
 fs = require 'fs'
 
 expressplates = () ->
-    this.plates = plates;
+    this.plates = plates
+    @
 
 expressplates.prototype =
     init: (app) ->
-        app.engin '.html', this.renderFile
+        app.engine '.html', this.renderFile
         app.set 'view engine', 'html'
         this.plates
     renderFile: (path, options, fn) ->

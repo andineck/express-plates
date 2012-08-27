@@ -6,12 +6,13 @@
   fs = require('fs');
 
   expressplates = function() {
-    return this.plates = plates;
+    this.plates = plates;
+    return this;
   };
 
   expressplates.prototype = {
     init: function(app) {
-      app.engin('.html', this.renderFile);
+      app.engine('.html', this.renderFile);
       app.set('view engine', 'html');
       return this.plates;
     },
